@@ -15,15 +15,13 @@ const URL = 'mongodb+srv://olamiwalepaul:uX2juKv8k6l9LGKz@cluster0.8er9qmw.mongo
 
 
 
-//mongodb connection
-
 mongoose.connect(URL)
 .then(() => { console.log('connected')})
 .catch((err) => {console.log('Not connected', err.message)})
 
 
 
-//Schema and model
+
 
 const noteSchema = new mongoose.Schema({
     title: String,
@@ -34,14 +32,14 @@ const Note = mongoose.model('Note', noteSchema);
 
 
 
-//Middleware
+
 
 app.use(cors());
 app.use(bodyParser.json());
 
 
 
-//Routes
+
 
 app.get('/api/notes', async (req, res) => {
     try {
@@ -79,9 +77,6 @@ app.post('/api/notes', async (req, res) => {
 
 
 
-
-
-
   app.put('/api/notes/:id', async (req, res) => {
     const { id } = req.params;
     const updatedNote = req.body;
@@ -108,7 +103,7 @@ app.post('/api/notes', async (req, res) => {
   
 
 
-//start the server
+
 
 app.listen(PORT, () => {
     console.log('sever running on port 3000')
