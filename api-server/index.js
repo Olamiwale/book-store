@@ -2,14 +2,20 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
+
+
+
+const dbUser = process.env.MONGO_DB_USER;
+const dbPass = process.env.MONGO_DB_PASS;
 
 
 
 const app = express();
 const PORT = 3000;
 
-const URL = 'mongodb+srv://olamiwalepaul:uX2juKv8k6l9LGKz@cluster0.8er9qmw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const URL = `mongodb+srv://${dbUser}:${dbPass}@cluster0.8er9qmw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 
 
